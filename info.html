@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detailed Timeline - The History We Ought to Know</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    
+    <style>
+      /* Ειδικά styles για αυτή τη σελίδα */
+      .sub-hero {
+          height: 50vh !important;
+          min-height: 350px;
+          background-image: url('Images/tomer-texler-5uLjomyeoRU-unsplash.jpg'); /* Ίδια εικόνα για συνοχή */
+      }
+      
+      /* Accordion Styling για να ταιριάζει με το "σοβαρό" κόκκινο θέμα */
+      .accordion-item {
+          border: none;
+          margin-bottom: 15px;
+          border-radius: 8px !important;
+          overflow: hidden;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      }
+      
+      .accordion-button {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: 1.2rem;
+          background-color: #fff;
+          color: var(--text-dark);
+      }
+
+      .accordion-button:not(.collapsed) {
+          background-color: rgba(201, 76, 76, 0.1); /* Αχνό κόκκινο */
+          color: var(--primary-color);
+          box-shadow: none;
+      }
+      
+      .accordion-button:focus {
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 0.25rem rgba(201, 76, 76, 0.25);
+      }
+
+      .source-link {
+          font-size: 0.85rem;
+          color: #6c757d;
+          text-decoration: none;
+          border-bottom: 1px dotted #6c757d;
+      }
+      .source-link:hover {
+          color: var(--primary-color);
+          border-bottom-color: var(--primary-color);
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index2.html">Ιδεολογικές Αρχές</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index2.html">Back to Home</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero-section sub-hero d-flex align-items-center">
+      <div class="hero-overlay"></div>
+      <div class="container text-center text-white position-relative px-4">
+        <h1 class="display-4 fw-bolder text-uppercase reveal">
+          Chronology of Events
+        </h1>
+        <p class="lead fs-5 my-4 mx-auto hero-subtitle reveal">
+          A detailed historical record from 1948 to the present day.
+        </p>
+      </div>
+    </header>
+
+    <section class="py-5 bg-light">
+      <div class="container">
+        
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            
+            <div class="mb-5 reveal">
+              <h2 class="fw-bold text-dark mb-3">Historical Context</h2>
+              <p class="lead text-muted">
+                To understand the current crisis, one must look at the systematic events that shaped the Gaza Strip over the last 76 years.
+              </p>
+            </div>
+
+            <div class="accordion" id="timelineAccordion">
+
+              <div class="accordion-item reveal">
+                <h2 class="accordion-header" id="heading1948">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1948" aria-expanded="true">
+                    1948: The Nakba (The Catastrophe)
+                  </button>
+                </h2>
+                <div id="collapse1948" class="accordion-collapse collapse show" data-bs-parent="#timelineAccordion">
+                  <div class="accordion-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <p>The <strong>Nakba</strong> refers to the mass displacement of Palestinians during the 1948 Arab-Israeli war. It fundamentally altered the demographics of Gaza.</p>
+                            <ul>
+                                <li><strong>Displacement:</strong> Approximately 750,000 Palestinians were expelled from their homes. About <strong>200,000 refugees</strong> fled specifically to the Gaza Strip, overwhelming the local population.</li>
+                                <li><strong>Refugee Camps:</strong> Eight major refugee camps (including Jabalia, Beach Camp, and Rafah) were established by UNRWA to house this influx. These "temporary" camps exist to this day.</li>
+                                <li><strong>Population Density:</strong> The sudden influx transformed Gaza into one of the most densely populated areas on Earth almost overnight.</li>
+                            </ul>
+                            <small class="text-muted">Source: <a href="https://www.unrwa.org/palestine-refugees" target="_blank" class="source-link">UNRWA Archives</a></small>
+                        </div>
+                        <div class="col-md-4 mt-3 mt-md-0">
+                            <img src="Images/NakbaProtest.jpg" class="img-fluid rounded shadow-sm" alt="Nakba 1948">
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item reveal">
+                    <div class="accordion-item reveal">
+                    <h2 class="accordion-header" id="heading1967">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1967">
+                        1967: The Occupation Begins
+                        </button>
+                    </h2>
+                    <div id="collapse1967" class="accordion-collapse collapse" data-bs-parent="#timelineAccordion">
+                        <div class="accordion-body">
+                        <div class="row align-items-center">
+                            
+                            <div class="col-md-8">
+                            <p>During the Six-Day War, Israel captured the Gaza Strip from Egyptian administration, bringing it under direct military occupation.</p>
+                            <ul>
+                                <li><strong>Settlements:</strong> Following the occupation, Israel built 21 settlements inside Gaza (Gush Katif block), appropriating significant agricultural land and water resources. These were evacuated in 2005 ("The Disengagement"), but control over borders remained.</li>
+                                <li><strong>Economic Dependence:</strong> The occupation created a structural dependence of Gaza's economy on Israel, limiting independent trade.</li>
+                                <li><strong>Military Administration:</strong> A system of permits and checkpoints was established, restricting movement for decades.</li>
+                            </ul>
+                            <small class="text-muted">Source: <a href="https://www.un.org/unispal/history/" target="_blank" class="source-link">UN History of Palestine</a></small>
+                            </div>
+
+                            <div class="col-md-4 mt-3 mt-md-0">
+                            <img src="Images/October_2023_Gaza−Israel_conflict.svg" class="img-fluid rounded shadow-sm" alt="Gaza-Israel-Map">
+                            </div>
+
+                        </div> </div>
+                    </div>
+                    </div>
+              <div class="accordion-item reveal">
+                <h2 class="accordion-header" id="heading2007">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2007">
+                    2007: The Blockade (Siege)
+                  </button>
+                </h2>
+                <div id="collapse2007" class="accordion-collapse collapse" data-bs-parent="#timelineAccordion">
+                  <div class="accordion-body">
+                    <p>Following the election of Hamas, Israel imposed a comprehensive land, air, and sea blockade. The UN has described this as "collective punishment."</p>
+                    <ul>
+                        <li><strong>"De-development":</strong> The blockade caused the collapse of the economy. By 2022, unemployment reached 47%, one of the highest in the world.</li>
+                        <li><strong>Import Restrictions:</strong> "Dual-use" items (including construction materials and medical equipment) were banned.</li>
+                        <li><strong>Food Insecurity:</strong> Even before 2023, 80% of the population relied on international humanitarian aid to survive.</li>
+                    </ul>
+                    <small class="text-muted">Source: <a href="https://www.oxfam.org/en/timeline-humanitarian-impact-gaza-blockade" target="_blank" class="source-link">Oxfam International Report</a></small>
+                  </div>
+                </div>
+              </div>
+
+               <div class="accordion-item reveal">
+                <h2 class="accordion-header" id="heading2023">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2023">
+                    2023: Total War & Destruction
+                  </button>
+                </h2>
+                <div id="collapse2023" class="accordion-collapse collapse" data-bs-parent="#timelineAccordion">
+                  <div class="accordion-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <p>Following the October 7 attacks, Israel launched a massive offensive. The scale of destruction has been described as "domicide" (destruction of homes).</p>
+                            <ul>
+                                <li><strong>Infrastructure:</strong> Over 60% of all housing units have been destroyed or damaged.</li>
+                                <li><strong>Displacement:</strong> 1.9 million people (85% of the population) were forced to flee, many multiple times.</li>
+                                <li><strong>Healthcare Collapse:</strong> 33 out of 36 hospitals were rendered non-functional due to raids or lack of fuel.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mt-3 mt-md-0">
+                            <img src="Images/wreckages.jpg" class="img-fluid rounded shadow-sm" alt="Destruction">
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+               <div class="accordion-item reveal">
+                <h2 class="accordion-header" id="heading2024">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2024">
+                    2024: ICJ & The Genocide Case
+                  </button>
+                </h2>
+                <div id="collapse2024" class="accordion-collapse collapse" data-bs-parent="#timelineAccordion">
+                  <div class="accordion-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <p>South Africa brought a case against Israel at the International Court of Justice (ICJ).</p>
+                            <ul>
+                                <li><strong>The Ruling:</strong> The ICJ found it "plausible" that Israel's acts could amount to genocide.</li>
+                                <li><strong>Provisional Measures:</strong> The court ordered Israel to take immediate steps to prevent genocide and ensure the delivery of urgent humanitarian aid.</li>
+                                <li><strong>International Reaction:</strong> The ruling marked a turning point in legal accountability, although aid obstruction continued.</li>
+                            </ul>
+                            <small class="text-muted">Source: <a href="https://www.icj-cij.org/case/192" target="_blank" class="source-link">ICJ Official Case Documents</a></small>
+                        </div>
+                        <div class="col-md-4 mt-3 mt-md-0">
+                            <img src="Images/CourtOfJustice.jpg" class="img-fluid rounded shadow-sm" alt="ICJ">
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div> <div class="mt-5 pt-4 border-top reveal">
+                <h5 class="fw-bold mb-3">Further Reading & Official Reports</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-file-earmark-pdf me-2 text-danger"></i><a href="https://www.unrwa.org/resources/reports" target="_blank" class="text-decoration-none text-dark">UNRWA Annual Operational Reports</a></li>
+                    <li class="mb-2"><i class="bi bi-file-earmark-pdf me-2 text-danger"></i><a href="https://www.ochaopt.org/" target="_blank" class="text-decoration-none text-dark">UN OCHA: Data on Casualties and Impact</a></li>
+                    <li class="mb-2"><i class="bi bi-file-earmark-pdf me-2 text-danger"></i><a href="https://www.amnesty.org/en/location/middle-east-and-north-africa/israel-and-occupied-palestinian-territories/report-israel-and-occupied-palestinian-territories/" target="_blank" class="text-decoration-none text-dark">Amnesty International: Apartheid Report</a></li>
+                </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4 text-center">
+      <div class="container">
+        <p class="mb-0">&copy; 2024 The History We Ought to Know. All rights reserved.</p>
+        <a href="index2.html" class="text-white-50 small text-decoration-none">Return to Home Page</a>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 50;
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+          }
+        }
+      }
+      window.addEventListener("scroll", reveal);
+      reveal();
+    </script>
+  </body>
+</html>

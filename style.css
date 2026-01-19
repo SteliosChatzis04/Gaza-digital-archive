@@ -1,0 +1,613 @@
+/* --- Global Color Palette --- */
+:root {
+    /* 1. Νέα Χρώματα */
+    --primary-color: #c94c4c; /* Ένα "σοβαρό" κόκκινο, όχι fire-red */
+    --primary-color-dark: #a94040; /* Για τα hover effects */
+    --dark-bg: #212529;           /* Το σκούρο γκρι που ήδη έχουμε */
+    --light-bg: #f8f9fa;          /* Το απαλό γκρι που ήδη έχουμε */
+    --text-light: #F5F5F5;        /* Ένα πιο "μαλακό" λευκό */
+    --text-dark: #333333;         /* Ένα πιο "μαλακό" μαύρο */
+
+    /* 2. Επαναπρογραμματισμός του Bootstrap */
+    --bs-primary: var(--primary-color);
+    --bs-primary-rgb: 201, 76, 76; /* (Αυτό είναι το 201, 76, 76 σε RGB) */
+    --bs-primary-dark: var(--primary-color-dark);
+
+    scroll-padding-top: 70px; /* Αφήνει 70px "αέρα" πάνω από κάθε ενότητα */
+}
+
+/* Επαναπρογραμματισμός των outline-primary κουμπιών (Η ΟΡΙΣΤΙΚΗ ΛΥΣΗ) */
+.btn-outline-primary {
+    /* Ορίζουμε τις "εσωτερικές" μεταβλητές του Bootstrap */
+    --bs-btn-color: var(--primary-color);
+    --bs-btn-border-color: var(--primary-color);
+    
+    /* Ορίζουμε και το hover state εδώ, για να είμαστε σίγουροι */
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--primary-color-dark);
+    --bs-btn-hover-border-color: var(--primary-color-dark);
+    
+    /* Ορίζουμε και το "active" state (όταν πατιέται) */
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--primary-color-dark);
+    --bs-btn-active-border-color: var(--primary-color-dark);
+}
+
+/* 3. Εφαρμογή Global Γραμματοσειρών */
+body {
+    color: var(--text-dark); /* Το default κείμενο θα είναι το --text-dark */
+}
+
+/* --- Global Additions --- */
+
+/* 1. Enables smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6, .display-3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+/* Extra-bold (900) for hero headline */
+.fw-bolder {
+    font-weight: 900 !important;
+}
+
+
+/* --- 0. Navbar Active Link Styling --- */
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+    color: var(--primary-color) !important; /* Κάνει το ενεργό link ΚΟΚΚΙΝΟ */
+    font-weight: 700;
+}
+
+.navbar-nav .nav-link {
+    transition: color 0.2s ease-in-out;
+}
+/* --- 1. Hero Section --- */
+
+.hero-section {
+    position: relative;
+    background-image: url('Images/tomer-texler-5uLjomyeoRU-unsplash.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; 
+    color: var(--text-light); 
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ΝΕΟ Gradient: Ένα μείγμα του κόκκινου και του μαύρου
+      για πιο "δραματικό" αποτέλεσμα.
+    */
+    background: linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.3), rgba(0,0,0,0.85));
+    z-index: 1;
+}
+
+.hero-section .container {
+    z-index: 2;
+}
+
+/* Αναβάθμιση του υπότιτλου */
+.hero-subtitle {
+    font-weight: 400; /* Πιο ελαφρύ για αντίθεση με τον τίτλο */
+    font-size: 1.3rem;
+    letter-spacing: 0.05em; /* "Κινηματογραφικό" spacing */
+    opacity: 0.85; /* Λίγο πιο διακριτικό */
+}
+
+/*
+  Αναβάθμιση Κουμπιών:
+  Τα κουμπιά τώρα θα πάρουν αυτόματα το νέο --primary-color (κόκκινο).
+  Τους δίνουμε απλώς καλύτερο styling.
+*/
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    padding: 14px 28px; /* Λίγο μεγαλύτερα */
+    font-weight: 700;
+    text-transform: uppercase; /* ΚΕΦΑΛΑΙΑ */
+    letter-spacing: 0.1em;     /* Περισσότερο spacing */
+    border-radius: 40px;       /* Πιο στρογγυλεμένα */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color-dark); /* Χρήση της dark-red μεταβλητής μας */
+    border-color: var(--primary-color-dark);
+    transform: translateY(-4px); /* Πιο "δυνατό" σήκωμα */
+    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+}
+
+.btn-outline-light {
+    padding: 14px 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 40px;
+    border-width: 2px; /* Πιο "στιβαρό" border */
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background-color: var(--text-light); /* Γίνεται "γεμάτο" στο hover */
+    color: var(--text-dark);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+}
+
+/* --- 2. Interactive Timeline (Horizontal) --- */
+
+/* Connecting line behind timeline steps */
+.timeline-line {
+    position: absolute;
+    width: 90%;
+    height: 4px;
+    background-color: var(--primary-color); /* <-- ΑΛΛΑΓΗ (ήταν μπλε) */
+    top: 40px;
+    left: 5%;
+    z-index: 1;
+}
+
+/* Wrapper for each timeline step */
+.timeline-item {
+    position: relative;
+    z-index: 2;
+}
+
+/* Circular numbered step */
+.timeline-step {
+    width: 80px;
+    height: 80px;
+    background-color: #212529; /* Ίδιο με το φόντο */
+    border: 4px solid var(--primary-color); /* <-- ΑΛΛΑΓΗ (ήταν μπλε) */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--text-light);
+}
+
+/* Hidden hover card (appears on hover) */
+/* Τροποποίηση για να βγαίνει ΑΠΟ ΠΑΝΩ και να είναι ΜΠΡΟΣΤΑ από όλα */
+.timeline-hover-details {
+    position: absolute;
+    
+    /* Αλλάζουμε τη θέση: Αντί για top, χρησιμοποιούμε bottom */
+    top: auto;          /* Ακυρώνουμε το top */
+    bottom: 110%;       /* Το σπρώχνουμε πάνω από το κυκλάκι (100% + λίγο αέρα) */
+    
+    left: 50%;
+    transform: translateX(-50%); /* Κεντράρισμα οριζόντια */
+    
+    width: 300px;
+    background-color: #fff;
+    color: var(--text-dark);
+    padding: 15px;
+    border-radius: 8px;
+    
+    /* Σημαντικό: Πολύ υψηλό z-index για να μην κρύβεται από τίποτα */
+    z-index: 9999; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Πιο έντονη σκιά για να ξεχωρίζει */
+
+    /* Animation */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    
+    /* Ένα μικρό βελάκι για να δείχνει προς τα κάτω (προαιρετικό αλλά ωραίο) */
+}
+
+/* Προσθήκη για το βελάκι που δείχνει προς το έτος */
+.timeline-hover-details::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Στο κάτω μέρος του κουτιού */
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent; /* Λευκό βελάκι */
+}
+
+/* ΕΜΦΑΝΙΣΗ (Hover State) */
+.timeline-item:hover .timeline-hover-details {
+    opacity: 1;
+    visibility: visible;
+    bottom: 130%; /* Μικρή κίνηση προς τα πάνω όταν εμφανίζεται για εφέ */
+}
+
+/* Softer text color and fixed minimum height */
+.timeline-item-content {
+    color: #ced4da;
+    min-height: 100px;
+}
+
+/* --- Responsive (Mobile Layout) --- */
+@media (max-width: 768px) {
+
+    /* Hide the horizontal line on mobile */
+    .timeline-line {
+        display: none;
+    }
+
+    /* Stack timeline items vertically */
+    .timeline-item {
+        margin-bottom: 40px;
+    }
+
+    /* Hover details become always visible on mobile */
+    .timeline-hover-details {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        margin-top: 15px;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+/* --- 3. Map Section --- */
+
+#map-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* Smooth rounded edges */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+}
+
+/* Leaflet popup styling to match Bootstrap design */
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.leaflet-popup-content {
+    font-family: 'Roboto', sans-serif;
+}
+
+.leaflet-popup-content h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary-color); /* <-- ΑΛΛΑΓΗ (ήταν μπλε) */
+}
+
+/* --- 4. Carousel (Full Width Style) --- */
+
+/* Caption background overlay */
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.65);
+    padding: 1.5rem;
+    border-radius: 8px;
+    bottom: 2rem;
+
+    /* Ensures readable text on mobile too */
+    left: 10%;
+    right: 10%;
+    width: 80%;
+}
+
+/* --- ΝΕΑ ΠΡΟΣΘΗΚΗ: Styling για τις "τελείες" --- */
+.carousel-indicators [data-bs-target] {
+    background-color: #777; /* Default γκρι */
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+    background-color: var(--primary-color); /* <-- ΑΛΛΑΓΗ (Η ενεργή τελεία γίνεται κόκκινη) */
+}
+/* ------------------------------------------------ */
+
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .carousel-caption {
+        bottom: 1rem;
+        padding: 1rem;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.1rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Optional atmospheric effect for images */
+.carousel-item img {
+    filter: brightness(0.9) grayscale(20%);
+}
+
+/* --- 5. Infographics / Stats Section --- */
+
+.stat-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.stat-number {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 3.8rem;
+    color: var(--primary-color); /* <-- ΑΛΛΑΓΗ (Οι αριθμοί γίνονται κόκκινοι) */
+    line-height: 1.1;
+}
+
+/* Hover elevation effect for stat cards */
+#stats .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#stats .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1) !important;
+}
+/* --- 6. Donate Form --- */
+
+/* Makes checked outline buttons appear filled */
+.btn-check:checked + .btn-outline-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Progress bar custom height & font */
+.donate-progress {
+    height: 25px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Donation progress percentage */
+.donate-progress .progress-bar {
+    width: 60%;
+}
+
+/* Cleaner card appearance for donation form */
+#donate .card {
+    border: none;
+}
+
+/* ΝΕΟΣ ΚΑΝΟΝΑΣ: Διορθώνει το μπλε "focus" σε φόρμες */
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+
+/* --- 7. Footer --- */
+
+#main-footer {
+    font-size: 0.9rem;
+}
+
+/* Footer link styling */
+.footer-links a {
+    color: #adb5bd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Social media icons styling */
+.social-icon {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--primary-color); /* <-- ΑΛΛΑΓΗ (Το hover γίνεται κόκκινο) */
+}
+
+/* --- Accessibility Modal Styling --- */
+#mapModal .modal-content {
+    border-radius: 15px; /* Πιο απαλές γωνίες */
+}
+
+#mapModal .modal-body {
+    color: #000; /* Απόλυτο μαύρο για μέγιστο contrast */
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Όταν το modal είναι ανοιχτό, κάνε το background πιο σκοτεινό για focus */
+.modal-backdrop.show {
+    opacity: 0.85; 
+}
+
+/* --- 8. UX Enhancements & Animations --- */
+
+/* A. Scroll Reveal Animation (Εμφάνιση κατά το scroll) */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px); /* Ξεκινάει λίγο πιο κάτω */
+  transition: all 0.8s ease-out; /* Ομαλή κίνηση */
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* B. Back to Top Button */
+#backToTop {
+  display: none; /* Κρυμμένο αρχικά */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#backToTop:hover {
+  background-color: var(--primary-color-dark);
+  transform: translateY(-5px);
+}
+
+/* C. Accessibility Modal Styling (Βελτίωση παραθύρου χάρτη) */
+#mapModal .modal-content {
+    border-radius: 15px;
+    border: none;
+}
+#mapModal .modal-header {
+    background-color: #212529; /* Dark Header */
+    color: #fff;
+}
+#mapModal .modal-body {
+    color: #000; /* Απόλυτο μαύρο για contrast */
+    font-size: 1.1rem; /* Ελαφρώς μεγαλύτερα γράμματα */
+}
+/* Σκοτεινό φόντο πίσω από το modal για focus */
+.modal-backdrop.show {
+    opacity: 0.8;
+}
+
+/* --- AI Chatbot Styling --- */
+#ai-chat-container {
+    position: fixed;
+    bottom: 30px;
+    left: 30px; /* Αριστερά για να μην πέφτει πάνω στο BackToTop */
+    z-index: 10000;
+    font-family: 'Roboto', sans-serif;
+}
+
+#ai-toggle-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#ai-toggle-btn:hover {
+    background-color: var(--primary-color-dark);
+    transform: scale(1.05);
+}
+
+#ai-chat-window {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    width: 350px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+/* Mobile responsive */
+@media (max-width: 500px) {
+    #ai-chat-window {
+        width: 300px; /* Πιο στενό σε κινητά */
+        height: 450px;
+    }
+}
+
+.ai-header {
+    background-color: #212529; /* Dark Header */
+    color: #fff;
+    padding: 15px;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+#ai-messages {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ai-msg-bot, .ai-msg-user {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.ai-msg-bot {
+    background-color: #e9ecef;
+    color: #333;
+    border-bottom-left-radius: 2px;
+}
+
+.ai-msg-bot strong { color: var(--primary-color); }
+
+.ai-msg-user {
+    background-color: var(--primary-color);
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
+
+.ai-input-area {
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+/* Loading animation dots */
+.typing-dots::after {
+    content: ' .';
+    animation: dots 1s steps(5, end) infinite;
+}
+@keyframes dots {
+    0%, 20% { content: ' .'; }
+    40% { content: ' ..'; }
+    60% { content: ' ...'; }
+    80%, 100% { content: ''; }
+}
