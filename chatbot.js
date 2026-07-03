@@ -1,6 +1,6 @@
 
 //llama-3.3-70b-versatile
-const API_KEY = window.APP_CONFIG?.GROQ_API_KEY || "";
+const API_KEY = "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";
 
 const MODEL_NAME = "llama-3.3-70b-versatile";
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
@@ -78,11 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // 1. Εμφάνιση μηνύματος χρήστη
         appendMessage(userText, 'user');
         inputField.value = '';
-
-        if (!API_KEY) {
-            appendMessage("⚠️ No API key configured. See config.example.js.", 'bot');
-            return;
-        }
 
         if (!checkRateLimit()) {
             appendMessage(`⚠️ You've reached the limit of ${RATE_LIMIT_MAX_MESSAGES} messages for today. Please try again tomorrow.`, 'bot');
