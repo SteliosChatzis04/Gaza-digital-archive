@@ -1,9 +1,8 @@
 
 //llama-3.3-70b-versatile
-const API_KEY = "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"; 
+const API_KEY = window.APP_CONFIG?.GROQ_API_KEY || "";
 
-
-const MODEL_NAME = "llama-3.3-70b-versatile"; 
+const MODEL_NAME = "llama-3.3-70b-versatile";
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
 
 // Το περιεχόμενο του Site (Context)
@@ -53,7 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // 1. Εμφάνιση μηνύματος χρήστη
         appendMessage(userText, 'user');
         inputField.value = '';
-        
+
+        if (!API_KEY) {
+            appendMessage("⚠️ Δεν έχει ρυθμιστεί API key. Δες το config.example.js.", 'bot');
+            return;
+        }
+
         // 2. Εμφάνιση Loading
         const loadingId = appendMessage("Thinking<span class='typing-dots'></span>", 'bot', true);
 
