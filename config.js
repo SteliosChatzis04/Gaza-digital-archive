@@ -1,0 +1,3 @@
+window.APP_CONFIG = {
+    GROQ_API_KEY: "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"
+};

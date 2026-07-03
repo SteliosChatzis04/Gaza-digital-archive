@@ -5,6 +5,32 @@ const API_KEY = window.APP_CONFIG?.GROQ_API_KEY || "";
 const MODEL_NAME = "llama-3.3-70b-versatile";
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
 
+// Rate limiting: max μηνύματα ανά επισκέπτη ανά ημέρα (προστασία του δημόσιου API key)
+const RATE_LIMIT_MAX_MESSAGES = 15;
+const RATE_LIMIT_STORAGE_KEY = "gazaChatRateLimit";
+
+function checkRateLimit() {
+    const today = new Date().toISOString().slice(0, 10);
+    let record;
+    try {
+        record = JSON.parse(localStorage.getItem(RATE_LIMIT_STORAGE_KEY)) || {};
+    } catch {
+        record = {};
+    }
+
+    if (record.date !== today) {
+        record = { date: today, count: 0 };
+    }
+
+    if (record.count >= RATE_LIMIT_MAX_MESSAGES) {
+        return false;
+    }
+
+    record.count += 1;
+    localStorage.setItem(RATE_LIMIT_STORAGE_KEY, JSON.stringify(record));
+    return true;
+}
+
 // Το περιεχόμενο του Site (Context)
 const websiteContext = `
 You are a helpful assistant for the website "The History We Ought to Know - Gaza".
@@ -54,7 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
         inputField.value = '';
 
         if (!API_KEY) {
-            appendMessage("⚠️ Δεν έχει ρυθμιστεί API key. Δες το config.example.js.", 'bot');
+            appendMessage("⚠️ No API key configured. See config.example.js.", 'bot');
+            return;
+        }
+
+        if (!checkRateLimit()) {
+            appendMessage(`⚠️ You've reached the limit of ${RATE_LIMIT_MAX_MESSAGES} messages for today. Please try again tomorrow.`, 'bot');
             return;
         }
 
